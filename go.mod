@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/joho/godotenv v1.4.0
-	github.com/possawang/go-service-lib-common v0.0.3
+	github.com/possawang/go-service-lib-common v1.0.1
 	gorm.io/driver/mysql v1.3.3
 	gorm.io/gorm v1.23.4
 )
