@@ -10,7 +10,6 @@ import (
 
 type PersistMainComponent struct {
 	Endpoints map[string]routerutils.Endpoint
-	Mdw       func(h http.Handler) http.Handler
 	Models    []gorm.Model
 }
 
@@ -19,5 +18,7 @@ func StartingPersistService(component PersistMainComponent) {
 	if err != nil {
 		panic(err)
 	}
-	routerutils.StartingService(component.Endpoints, component.Mdw)
+	routerutils.StartingService(component.Endpoints, func(h http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { h.ServeHTTP(w, r) })
+	})
 }
