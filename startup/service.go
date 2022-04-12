@@ -5,12 +5,11 @@ import (
 
 	"github.com/possawang/go-persist-lib-common/connection"
 	"github.com/possawang/go-service-lib-common/routerutils"
-	"gorm.io/gorm"
 )
 
 type PersistMainComponent struct {
 	Endpoints map[string]routerutils.Endpoint
-	Models    []gorm.Model
+	Models    []interface{}
 }
 
 func StartingPersistService(component PersistMainComponent) {
