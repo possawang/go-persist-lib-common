@@ -14,7 +14,7 @@ type PersistMainComponent struct {
 }
 
 func StartingPersistService(component PersistMainComponent) {
-	_, err := connection.ConnectionAndMigration(component.Models)
+	err := connection.ConnectionAndMigration(component.Models)
 	if err != nil {
 		panic(err)
 	}
