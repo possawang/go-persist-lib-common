@@ -9,12 +9,14 @@ import (
 	"gorm.io/gorm"
 )
 
-func ConnectionAndMigration(dst ...interface{}) error {
+func ConnectionAndMigration(dst []interface{}) error {
 	db, err := Connecting()
 	if err != nil {
 		return err
 	}
-	db.AutoMigrate(dst...)
+	for _, i := range dst {
+		db.AutoMigrate(i)
+	}
 	return err
 }
 
