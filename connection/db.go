@@ -15,7 +15,7 @@ func ConnectionAndMigration(dst []interface{}) error {
 		return err
 	}
 	for _, i := range dst {
-		db.AutoMigrate(i)
+		db.AutoMigrate(&i)
 	}
 	return err
 }
